@@ -45,12 +45,28 @@ def reset_turtle():
 
 def draw_turtle():
     forward()
+    rotate(90)
+    forward()
+    rotate(45)
+    forward()
+    move_to(100, 100)
+    forward()
 
 
 def forward():
     new_x = current_position[0] + direction[0] * draw_length
     new_y = current_position[1] + direction[1] * draw_length
     line_to(new_x, new_y)
+
+
+def rotate(angle):
+    global direction
+    direction = z_rotation(direction, math.radians(angle))
+
+
+def move_to(x, y):
+    global current_position
+    current_position = (x, y)
 
 
 init_ortho()
